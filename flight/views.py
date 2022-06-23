@@ -1,6 +1,6 @@
 from django import views
 from .models import Flight, Reservation
-from .serializers import FlightSerializer
+from .serializers import FlightSerializer, ReservationSerializer
 from rest_framework import viewsets
 from .permissions import IsStufforReadOnly
 
@@ -9,4 +9,6 @@ class FlightView(viewsets.ModelViewSet):
     serializer_class = FlightSerializer
     permission_classes = (IsStufforReadOnly,) # or in list
 
-
+class Reservationview(viewsets.ModelViewSet):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer
