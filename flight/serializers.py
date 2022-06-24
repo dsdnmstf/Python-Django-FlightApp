@@ -23,6 +23,7 @@ class PassengerSerializer(serializers.ModelSerializer):
             "id",
             "first_name",
             "last_name",
+            "email",
             "phone_number",
         )
 
@@ -40,8 +41,8 @@ class ReservationSerializer(serializers.ModelSerializer):
         "flight", #GET
         "flight_id", #POST
         "user", #GET
-        "use_id" #POST
-        "passenger"
+        "user_id", #POST
+        "passenger",
     )
 
     def create(self, validate_data):
