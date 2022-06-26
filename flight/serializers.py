@@ -57,4 +57,20 @@ class ReservationSerializer(serializers.ModelSerializer):
         reservation.save()
         return reservation
 
+class StuffFlightSerializer(serializers.ModelSerializer):
+    reservations = ReservationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Flight
+        fields = (
+            "id",
+            "flight_number",
+            "operation_ailines",
+            "departure_city",
+            "arrival_city",
+            "date_of_departure",
+            "estimatedtime_of_departure",
+            "reservations",
+        )
+
 
